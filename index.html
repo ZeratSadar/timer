@@ -11,7 +11,7 @@
     <script src="timer.js"></script>
 </head>
     <body>
-    <div id="container">
+    <div id="container" style="background-image: url('8ce6ec893c4c3d4f24721bd7943a8299bc83f81f.jpeg');">
         <div id="countdown"></div>
         <audio id="audio" src="http://www.soundjay.com/button/beep-07.wav" autostart="false" ></audio>
         <script type="text/javascript" charset="utf-8">
@@ -20,10 +20,14 @@
 
                 var done=false;
                 var countdown= $("#countdown").countdown360({
-                    radius      : 180,
+                    radius      : 300,
+                    strokeStyle : '#B9121B',
+                    strokeRadius: 20,
+                    fillStyle   : '#046380',
                     seconds     : 60,
                     fontColor   : '#FFFFFF',
                     autostart   : false,
+                    label       : ["", ""],
                     onComplete  : function () {
                         var sound = document.getElementById("audio");
                         sound.play()

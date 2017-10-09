@@ -5,6 +5,7 @@
             radius: 15.5,                    // radius of arc
             strokeStyle: "#477050",          // the color of the stroke
             strokeWidth: undefined,          // the stroke width, dynamically calulated if omitted in options
+            strokeRadius: 4,                 // the stroke radius
             fillStyle: "#8ac575",            // the fill color
             fontColor: "#477050",            // the font color
             fontFamily: "sans-serif",        // the font family
@@ -21,7 +22,7 @@
         this.element = element;
         this.settings = $.extend({}, defaults, options);
         if (!this.settings.fontSize) { this.settings.fontSize = this.settings.radius/1.8; }
-        if (!this.settings.strokeWidth) { this.settings.strokeWidth = this.settings.radius/4; }
+        if (!this.settings.strokeWidth) { this.settings.strokeWidth = this.settings.radius/this.settings.strokeRadius; }
         this._defaults = defaults;
         this._name = pluginName;
         this._init();
