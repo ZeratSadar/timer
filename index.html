@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Timer</title>
+    <link href="style.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="timer.js"></script>
+</head>
+    <body>
+    <div id="container">
+        <div id="countdown"></div>
+        <audio id="audio" src="http://www.soundjay.com/button/beep-07.wav" autostart="false" ></audio>
+        <script type="text/javascript" charset="utf-8">
+
+            $(document).ready(function(){
+
+                var done=false;
+                var countdown= $("#countdown").countdown360({
+                    radius      : 180,
+                    seconds     : 60,
+                    fontColor   : '#FFFFFF',
+                    autostart   : false,
+                    onComplete  : function () {
+                        var sound = document.getElementById("audio");
+                        sound.play()
+                        $(document).reset()
+                    }
+                });
+                document.querySelector("#countdown")
+                    .addEventListener("click",function(){
+                        if(!done)
+                            $(this).countdown360().start();
+                        done=true
+                    });
+
+            });
+
+        </script>
+    </div>
+    </body>
+</html>
